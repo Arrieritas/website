@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    height: max-content;
+    margin-top: 100px;
+    color: #747474;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.directions {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.directions > article {
+    max-width: 300px;
+}

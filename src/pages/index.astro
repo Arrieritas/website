@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.astro'
+import ServiceCard from '../components/ServiceCard.tsx';
+import { BsFillBusFrontFill as BusIcon } from 'react-icons/bs'
+import {FaMapMarkedAlt as MapIcon} from 'react-icons/fa'
+import {MdHomeRepairService as ServiceIcon} from 'react-icons/md'
+import Footer from '../components/Footer/Footer.tsx';
+import Entities from '../components/Entities.astro';
+---
+
+<Layout title="Conducciones las Arrieritas" description="Conducciones las Arrieritas">
+	<main>
+		<img src='/buses.jpg' class="image-buses" alt="conducciones las arrieritas buses"/>
+		<section class="about">
+			<img class='arrieritas' src="/arrieritas.jpg" alt="conducciones las arrieritas"/>
+			<p>Somos una empresa dedicada a la prestación de servicio público de transporte de pasajeros, tendientes a mejorar las condiciones en la operación, asegurando así la integridad de nuestros usuarios.</p>
+			<a href="/quienes-somos"><button>Quiénes Somos</button></a>
+		</section>
+		<section class="services">
+			<ServiceCard client:load title="NUESTRAS RUTAS" description="Conoce nuestras rutas metropolitanas, integradas al metro, y veredales" link='/nuestras-rutas'><MapIcon style={{width: '85px', height: '85px'}}/></ServiceCard>
+			<ServiceCard  client:load title="SERVICIOS ESPECIALES" description="Ofrecemos un servicio de transporte especial para los diferentes municipios y ciudades a nivel nacional." link='/servicio-especial'><BusIcon style={{width: '85px', height: '85px'}}/></ServiceCard>
+			<ServiceCard  client:load title="MÁS SERVICIOS" description="Conoce nuestros servicios" link='/servicios'><ServiceIcon style={{width: '85px', height: '85px'}}/></ServiceCard>
+		</section>
+		<Entities />
+		<Footer />
+	</main>
+</Layout>
+
+<style>
+	main {
+		z-index: 10;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		margin-top: 75px;
+	}
+	.image-buses {
+		width: 100%;
+		z-index: 0;
+		border-top-left-radius: 9999px;
+		border-bottom-left-radius: 9999px;
+	}
+	.about {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+		margin-top: 100px;
+		padding: 0 20px 0 20px;
+	}
+	.about > .arrieritas {
+		width: 500px;
+	}
+	
+	.about > p {
+		margin-top: 30px;
+		max-width: 500px;
+		text-align: center;
+		color: #747474;
+	}
+	.about > a > button {
+		width: 150px;
+		height: 50px;
+		border-radius: 9999px;
+		border: none;
+		background-color: #23a455;
+		color: #fff;
+		font-size: 16px;
+		cursor: pointer;
+		transition: transform .3s;
+	}
+	.about > a > button:hover {
+		transform: translateY(-10px);
+	}
+	.services {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 50px;
+		width: 100%;
+		height: max-content;
+		padding: 20px;
+		margin-top: 100px;
+		background-color: #23a455;
+	}
+
+	@media screen and (max-width: 700px) {
+		.about > .arrieritas {
+			width: 90%;
+		}
+	}
+</style>
