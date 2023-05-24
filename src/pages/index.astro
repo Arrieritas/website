@@ -7,11 +7,12 @@ import {FaMapMarkedAlt as MapIcon} from 'react-icons/fa'
 import {MdHomeRepairService as ServiceIcon} from 'react-icons/md'
 import Footer from '../components/Footer/Footer.tsx';
 import Entities from '../components/Entities.astro';
+import Slideshow from '../components/Slider/Slider.jsx';
 ---
 
 <Layout title="Conducciones las Arrieritas" description="Conducciones las Arrieritas">
 	<main>
-		<img src='/buses.jpg' class="image-buses" alt="conducciones las arrieritas buses"/>
+		<Slideshow client:load />
 		<section class="about">
 			<img class='arrieritas' src="/arrieritas.jpg" alt="conducciones las arrieritas"/>
 			<p>Somos una empresa dedicada a la prestación de servicio público de transporte de pasajeros, tendientes a mejorar las condiciones en la operación, asegurando así la integridad de nuestros usuarios.</p>
@@ -36,12 +37,6 @@ import Entities from '../components/Entities.astro';
 		align-items: center;
 		width: 100%;
 		margin-top: 75px;
-	}
-	.image-buses {
-		width: 100%;
-		z-index: 0;
-		border-top-left-radius: 9999px;
-		border-bottom-left-radius: 9999px;
 	}
 	.about {
 		display: flex;
