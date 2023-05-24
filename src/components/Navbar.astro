@@ -8,25 +8,39 @@
         <li><a href="/contacto">Contáctenos</a></li>
     </ul>
     <div>
-        <button class="menu-button"><img src="/menu.svg" alt="menu-icon"/></button>
+        <button class="menu-button">
+            <svg class="menu-icon show" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#383838"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12ZM3 18C3 17.4477 3.44772 17 4 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18Z" fill="#383838"></path> </g></svg>
+            <svg class="menu-exit hidden" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#383838" stroke="#383838"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#383838" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 18 3)"> <path d="m10.595 10.5 2.905-3-2.905-3"></path> <path d="m13.5 7.5h-9"></path> <path d="m10.5.5-8 .00224609c-1.1043501.00087167-1.9994384.89621131-2 2.00056153v9.99438478c.0005616 1.1043502.8956499 1.9996898 2 2.0005615l8 .0022461"></path> </g> </g></svg>
+        </button>
         <ul class="menu">
-            <li>Inicio</li>
-            <li>Quiénes Somos</li>
-            <li>Nuestras Rutas</li>
-            <li>Servicios</li>
-            <li>Contáctenos</li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/quienes-somos">Quiénes Somos</a></li>
+            <li><a href="/nuestras-rutas">Nuestras Rutas</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contáctenos</a></li>
         </ul>
     </div>
 </nav>
 
 <script>
     const menu = document.querySelector('.menu')
+    const menuIcon = document.querySelector('.menu-icon')
+    const menuExit = document.querySelector('.menu-exit')
     const button = document.querySelector('.menu-button')
     button.addEventListener('click', () => {
         if (menu.classList.contains('menu-show')) {
             menu.classList.remove('menu-show')
+            menuIcon.classList.add('show')
+            menuIcon.classList.remove('hidden')
+            menuExit.classList.add('hidden')
+            menuExit.classList.remove('show')
+            
         }else {
             menu.classList.add('menu-show')
+            menuIcon.classList.add('hidden')
+            menuIcon.classList.remove('show')
+            menuExit.classList.add('show')
+            menuExit.classList.remove('hidden')
         }
     })
 </script>
@@ -71,6 +85,12 @@
         display: none;
         list-style: none;
     }
+    .show {
+        display: block;
+    }
+    .hidden {
+        display: none;
+    }
 
     @media screen and (max-width: 700px) {
         .navbar > .full-menu {
@@ -104,11 +124,14 @@
             animation: show .3s;
         }
         .navbar > div > .menu-show > li {
-            color: #383838;
-            font-weight: 600;
-            font-size: 14px;
             cursor: pointer;
             user-select: none;
+        }
+        .navbar > div > .menu-show > li > a {
+            text-decoration: none;
+            color: #383838;
+            font-weight: 600;
+            font-size: 16px;
         }
     }
 
